@@ -1,0 +1,8 @@
+test_data
+*pycache*
+.python_venv
+.pypy_venv
+pathprob_sim/data/*
+*.tar.xz
+*.tar.gz
+*.tar.zst
