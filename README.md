@@ -58,7 +58,7 @@ deactivate
 ### Dataset
 
 ```bash
-wget https://github.com/hyq8868/PathProb_AE/releases/download/v1.0/test_data.tar.zst
+wget https://github.com/hyq8868/PathProb_AE/releases/download/v1.1/test_data.tar.zst
 zstd -d test_data.tar.zst -c | tar -xf - 
 ```
 
