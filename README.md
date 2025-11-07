@@ -36,9 +36,10 @@ sudo apt-get install -y build-essential graphviz libjpeg-dev zlib1g-dev wget zst
 ### Python Environment
 
 ```bash
-python3 -m pip install --upgrade pip
 python3 -m venv .python_venv
 source .python_venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade wheel
 pip install -r requirements.txt
 deactivate
 ```
@@ -46,10 +47,10 @@ deactivate
 ### PyPy Environment
 
 ```bash
-pypy3 -m pip install pip --upgrade
-pypy3 -m pip install wheel --upgrade
 pypy3 -m venv .pypy_venv
 source .pypy_venv/bin/activate
+pypy3 -m pip install pip --upgrade
+pypy3 -m pip install wheel --upgrade
 pypy3 -m pip install -r requirements_pypy.txt
 deactivate
 ```
@@ -67,7 +68,7 @@ zstd -d test_data.tar.zst -c | tar -xf -
 
 ### E1 – Probabilistic AS Relationship Inference
 
-**Time:** 5 min + 2 compute hours
+**Time:** 5 min + 30 compute minutes
 
 **Goal:** Infer AS relationships and validate against ASPA & CAIDA.
 
@@ -84,7 +85,7 @@ Expected output: Validation report.
 
 ---
 
-### E2 – Route-Leak Detection
+### E2 – Route Leak Detection
 
 **Time:** 5 min + 10 compute minutes
 
@@ -101,7 +102,7 @@ Results saved in: `test_data/leak_detection/result/`
 
 ---
 
-### E3 – Simulation (LIR & LCR Evaluation)
+### E3 – Large-scale Simulation
 
 **Time:** 5 min + 3 compute hours
 
