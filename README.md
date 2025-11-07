@@ -16,7 +16,7 @@ This repository contains the artifact for our NDSS submission *"PathProb: Probab
 ### Software
 
 * OS: Ubuntu 20.04.2 LTS (tested)
-* System Packages: bulid-essential, graphviz, libjpeg-dev, zlib1g-dev, wget, zstd
+* System Packages: git bulid-essential, graphviz, libjpeg-dev, zlib1g-dev, wget, zstd
 * Python 3.8+ and PyPy 3.10+
 * Dependencies: installable via `requirements.txt` and `requirements_pypy.txt`
 
@@ -30,7 +30,14 @@ This repository contains the artifact for our NDSS submission *"PathProb: Probab
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y build-essential graphviz libjpeg-dev zlib1g-dev wget zstd
+sudo apt-get install -y git build-essential graphviz libjpeg-dev zlib1g-dev wget zstd
+```
+
+### Clone the repository and change into the directory
+
+```bash
+git clone https://github.com/hyq8868/PathProb_AE.git
+cd PathProb_AE
 ```
 
 ### Python Environment
@@ -109,11 +116,11 @@ Results saved in: `test_data/leak_detection/result/`
 **Goal:** Simulate BGP scenarios using BGPy; evaluate LIR/LCR.
 
 ```bash
-cd PathProb_AE
 source .pypy_venv/bin/activate
 export PYTHONHASHSEED=0
 pypy3 -m pathprob_sim --trials 100
 pypy3 pathprob_sim/graph/graph.py
+deactivate
 ```
 
 Plots saved in: `pathprob_sim/data/graphs/`
