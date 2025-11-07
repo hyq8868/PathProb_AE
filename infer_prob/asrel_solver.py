@@ -7,6 +7,7 @@ class _Solver:
         self._log_file = None
         self.m = SCIPModel(name)
         self.m.setRealParam("limits/time", float(time_limit))
+        self.m.setParam("limits/memory", 16000)
         
         self.m.setIntParam("display/verblevel", 0)
         if log_path:

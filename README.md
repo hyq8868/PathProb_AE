@@ -1,6 +1,6 @@
 # PathProb: Probabilistic AS Relationship Inference and Route-Leak Detection
 
-This repository contains the **artifact** for our NDSS submission *"PathProb: Probabilistic AS Relationship Inference for Detecting BGP Route Leaks."*
+This repository contains the artifact for our NDSS submission *"PathProb: Probabilistic AS Relationship Inference for Detecting BGP Route Leaks."*
 It enables reviewers to reproduce the main experimental results (E1–E3) using scaled-down datasets.
 
 ---
@@ -39,7 +39,9 @@ deactivate
 ### PyPy Environment
 
 ```bash
-pypy3 -m ensurepip --upgrade
+sudo apt-get install -y graphviz libjpeg-dev zlib1g-dev
+pypy3 -m pip install pip --upgrade
+pypy3 -m pip install wheel --upgrade
 pypy3 -m venv .pypy_venv
 source .pypy_venv/bin/activate
 pypy3 -m pip install -r requirements_pypy.txt
@@ -49,7 +51,8 @@ deactivate
 ### Dataset
 
 ```bash
-tar -xJvf test_data.tar.xz
+wget https://github.com/hyq8868/PathProb_AE/releases/download/v1.0/test_data.tar.zst
+zstd -d test_data.tar.zst -c | tar -xf - 
 ```
 
 ---
@@ -59,7 +62,8 @@ tar -xJvf test_data.tar.xz
 ### E1 – Probabilistic AS Relationship Inference
 
 **Time:** 5 min + 2 compute hours
-**Goal:** Infer AS relationships and validate against ASPA & CAIDA Serial-2.
+
+**Goal:** Infer AS relationships and validate against ASPA & CAIDA.
 
 ```bash
 source .python_venv/bin/activate
@@ -67,6 +71,7 @@ python3 infer_prob/asrel_prob.py \
   --path_dir test_data/prob_inference/paths/202506 \
   --print_dir test_data/prob_inference/result/202506
 python3 eval_asrel.py --probs test_data/prob_inference/result/202506/pathprob.txt
+deactivate
 ```
 
 Expected output: Validation report.
@@ -76,12 +81,14 @@ Expected output: Validation report.
 ### E2 – Route-Leak Detection
 
 **Time:** 5 min + 10 compute minutes
-**Goal:** Compute path legitimacy scores and evaluate Precision/Recall/FPR.
+
+**Goal:** Do route leak detection and evaluate Precision, Recall, FPR.
 
 ```bash
 source .python_venv/bin/activate
 python3 route_leak_detection.py
-python3 figure_route_leak.py
+python3 figure_routeleak.py
+deactivate
 ```
 
 Results saved in: `test_data/leak_detection/result/`
@@ -91,14 +98,15 @@ Results saved in: `test_data/leak_detection/result/`
 ### E3 – Simulation (LIR & LCR Evaluation)
 
 **Time:** 5 min + 3 compute hours
+
 **Goal:** Simulate BGP scenarios using BGPy; evaluate LIR/LCR.
 
 ```bash
-cd PathProb
+cd PathProb_AE
 source .pypy_venv/bin/activate
 export PYTHONHASHSEED=0
 pypy3 -m pathprob_sim --trials 100
-python3 pathprob_sim/graph/graph.py
+pypy3 pathprob_sim/graph/graph.py
 ```
 
 Plots saved in: `pathprob_sim/data/graphs/`
