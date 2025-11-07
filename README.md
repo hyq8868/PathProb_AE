@@ -1,7 +1,6 @@
 # PathProb: Probabilistic AS Relationship Inference and Route-Leak Detection
 
 This repository contains the artifact for our NDSS submission *"PathProb: Probabilistic AS Relationship Inference for Detecting BGP Route Leaks."*
-It enables reviewers to reproduce the main experimental results (E1–E3) using scaled-down datasets.
 
 ---
 
@@ -17,6 +16,7 @@ It enables reviewers to reproduce the main experimental results (E1–E3) using 
 ### Software
 
 * OS: Ubuntu 20.04.2 LTS (tested)
+* System Packages: bulid-essential, graphviz, libjpeg-dev, zlib1g-dev, wget, zstd
 * Python 3.8+ and PyPy 3.10+
 * Dependencies: installable via `requirements.txt` and `requirements_pypy.txt`
 
@@ -25,6 +25,13 @@ It enables reviewers to reproduce the main experimental results (E1–E3) using 
 ---
 
 ## 2. Installation
+
+### Install system packages
+
+```bash
+sudo apt-get update
+sudo apt-get install -y build-essential graphviz libjpeg-dev zlib1g-dev wget zstd
+```
 
 ### Python Environment
 
@@ -39,7 +46,6 @@ deactivate
 ### PyPy Environment
 
 ```bash
-sudo apt-get install -y graphviz libjpeg-dev zlib1g-dev
 pypy3 -m pip install pip --upgrade
 pypy3 -m pip install wheel --upgrade
 pypy3 -m venv .pypy_venv
