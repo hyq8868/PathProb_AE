@@ -104,7 +104,7 @@ class PartialIssuanceSim(Simulation):
 
         super().__init__(*args, **kwargs)
         self.parse_cpus = kwargs["parse_cpus"]
-        print(f"parse_cpus: {self.parse_cpus}")
+        # print(f"parse_cpus: {self.parse_cpus}")
 
         print(f"PartialIssuanceSim initialized:")
         print(f"  Deployment percentage: {deployment_percentage*100}%")
