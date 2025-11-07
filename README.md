@@ -1,6 +1,6 @@
-# PathProb: Probabilistic AS Relationship Inference and Route-Leak Detection
+# PathProb: Probabilistic Inference and Path Scoring for Enhanced RPKI-based Route Leak Detection.
 
-This repository contains the artifact for our NDSS submission *"PathProb: Probabilistic AS Relationship Inference for Detecting BGP Route Leaks."*
+This repository contains the artifact for our NDSS submission *"PathProb: Probabilistic Inference and Path Scoring for Enhanced RPKI-based Route Leak Detection."*
 
 ---
 
@@ -36,9 +36,9 @@ sudo apt-get install -y build-essential graphviz libjpeg-dev zlib1g-dev wget zst
 ### Python Environment
 
 ```bash
+python3 -m pip install --upgrade pip
 python3 -m venv .python_venv
 source .python_venv/bin/activate
-python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 deactivate
 ```
