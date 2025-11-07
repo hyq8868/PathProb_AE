@@ -16,7 +16,7 @@ This repository contains the artifact for our NDSS submission *"PathProb: Probab
 ### Software
 
 * OS: Ubuntu 20.04.2 LTS (tested)
-* System Packages: git bulid-essential, graphviz, libjpeg-dev, zlib1g-dev, wget, zstd
+* System Packages: git, bulid-essential, graphviz, libjpeg-dev, zlib1g-dev, wget, zstd
 * Python 3.8+ and PyPy 3.10+
 * Dependencies: installable via `requirements.txt` and `requirements_pypy.txt`
 
